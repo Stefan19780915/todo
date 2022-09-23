@@ -14,7 +14,7 @@ class UI {
 				value[0] == 'checkbox' ?
 				`<input type="checkbox" ${value[1]} class="checkbox"></input>` 
 				: value[0] == 'button' ? `<button class="delete">${value[1]}</button>`
-				: value[0] == 'id' ? `<p class="id">${value[1]}</p>`
+				: value[0] == 'id' ? ``
 				:`<p class="task">${value[1]}</p>` 
 				)
 			
