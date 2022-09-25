@@ -11,11 +11,12 @@ class UI {
 	div.innerHTML = Object.entries(obj).map((value) => {
   		
 			 return (
-				value[0] == 'checkbox' ?
-				`<input type="checkbox" ${value[1]} class="checkbox"></input>` 
-				: value[0] == 'button' ? `<button class="delete">${value[1]}</button>`
+			
+				value[0] == 'checkbox' ? `<input type="checkbox" ${value[1]} class="checkbox"></input>`
+				: value[0] == 'button' ? `<${value[0]} class=${value[1]}>${value[1]}</${value[0]}>`	
 				: value[0] == 'id' ? ``
-				:`<p class="task">${value[1]}</p>` 
+				: `<div class=${value[0]}>${value[1]}</div>`
+			
 				)
 			
 				}).join('');
@@ -25,7 +26,7 @@ class UI {
 	
 	static onObjClick(e){
 		
-		e.target.classList.contains('delete') ? Store.removeItem('tasks', e.currentTarget.dataset.id) : false;
+		e.target.classList.contains('Delete') ? Store.removeItem('tasks', e.currentTarget.dataset.id) : false;
 		
 		if(e.target.classList.contains('checkbox')) {
 			let obj = Store.getOneItem('tasks', e.currentTarget.dataset.id);
